@@ -1,0 +1,19 @@
+Hi abhiral here.
+To the devs who will be working here we since its small project ive delibrately sacrificed some readabilty and abstraction for perfromace
+Ex 
+An clean abstraction here could be 
+// CODE
+{
+  func Parse(html []byte)*Pointer to parsed val{
+    return *x
+  }
+}
+As here in code above we are returing * a long lived var which in go results to heap allocation via escape analysis leading to gc pauses.
+So delibrately we are dong 
+
+// code
+{
+  func k(html []byte){
+u := url.Parse(html)
+  }
+}
